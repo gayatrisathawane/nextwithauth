@@ -2,7 +2,7 @@ import { connect } from "@/dbConfig/dbconfig";
 import User from "@/model/userModel";
 import { NextRequest, NextResponse } from "next/server"; //
 import bcryptjs from "bcryptjs";
-import { sendEmail } from "@/helpers/mailer";
+import { sendEmail} from "@/helpers/mailer";
 
 connect();
 
@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const user = await User.findOne({ email });
     if (user) {
       return NextResponse.json(
-        { error: "user is already sign up" },
+        { error: "User is already sign up" },
         { status: 500 }
       );
     }
